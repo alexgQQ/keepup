@@ -70,6 +70,9 @@ func main() {
 	project := os.Args[2]
 	zone := os.Args[3]
 
+	log.SetPrefix("keepup:")
+	log.SetFlags(log.LstdFlags | log.Lmsgprefix | log.Lshortfile | log.LUTC)
+
 	log.Printf("Checking instance %s status...\n", name)
 	stopped, err := isInstStopped(os.Stdout, project, zone, name)
 	if err != nil {
